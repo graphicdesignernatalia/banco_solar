@@ -6,13 +6,13 @@ const { consultarUsuarios, registrarUsuario, actualizarUsuario, eliminarUsuario,
 const app = express();
 
 //configurar el puerto del servidor
-const port = 3000;
+const port = 3001;
 
 //middleware para analizar el cuerpo de las solicitudes JSON
 app.use(express.json());
 
 //ruta para servir la página HTML principal
-app.use(express.static('public'));
+app.use(express.static('docs'));
 
 //ruta para obtener todos los usuarios
 app.get('/usuarios', async (req, res) => {

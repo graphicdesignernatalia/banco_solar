@@ -9,7 +9,7 @@ const setInfoModal = (nombre, balance, id) => {
     const balance = Number($("#balanceEdit").val());
     try {
       const { data } = await axios.put(
-        'http://localhost:3000/usuario',
+        'http://localhost:3001/usuario',
         {
           id,
           nombre,
@@ -28,7 +28,7 @@ const setInfoModal = (nombre, balance, id) => {
     let nombre = $("form:first input:first").val();
     let balance = Number($("form:first input:nth-child(2)").val());
     try {
-      const response = await fetch("http://localhost:3000/usuario", {
+      const response = await fetch("http://localhost:3001/usuario", {
         method: "post",
         headers: {
             "Content-Type": "application/json"
@@ -56,7 +56,7 @@ const setInfoModal = (nombre, balance, id) => {
       return false;
     }
     try {
-      const response = await fetch("http://localhost:3000/transferencia", {
+      const response = await fetch("http://localhost:3001/transferencia", {
         method: "post",
         headers: {
             "Content-Type": "application/json"
@@ -76,7 +76,7 @@ const setInfoModal = (nombre, balance, id) => {
   });
 
   const getUsuarios = async () => {
-    const response = await fetch("http://localhost:3000/usuarios");
+    const response = await fetch("http://localhost:3001/usuarios");
     let data = await response.json();
     $(".usuarios").html("");
 
@@ -106,7 +106,7 @@ const setInfoModal = (nombre, balance, id) => {
   const eliminarUsuario = async (id) => {
     const confirmacion = window.confirm("¿Estás seguro que quieres eliminar este usuario?")
     if (confirmacion){
-    const response = await fetch(`http://localhost:3000/usuario/${id}`, {
+    const response = await fetch(`http://localhost:3001/usuario/${id}`, {
       method: "DELETE",
     });
     getUsuarios();
@@ -119,10 +119,10 @@ const setInfoModal = (nombre, balance, id) => {
   const getTransferencias = async () => {
 
     try {
-      const responseTransferencias = await axios.get("http://localhost:3000/transferencias");
+      const responseTransferencias = await axios.get("http://localhost:3001/transferencias");
       const dataTransferencias = responseTransferencias.data;
   
-      const responseUsuarios = await fetch("http://localhost:3000/usuarios");
+      const responseUsuarios = await fetch("http://localhost:3001/usuarios");
       const dataUsuarios = await responseUsuarios.json();
   
       const usuariosMap = {};
