@@ -14,6 +14,12 @@ app.use(express.json());
 //ruta para servir la página HTML principal
 app.use(express.static('docs'));
 
+
+// ruta para servir la página HTML principal
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/docs/index.html'); // Ajusta según la ubicación de tu index.html
+});
+
 //ruta para obtener todos los usuarios
 app.get('/usuarios', async (req, res) => {
   try {
